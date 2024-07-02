@@ -20,8 +20,8 @@ def get_posts():
     return{"Data": "This is your posts."}
 
 @app.post("/createposts")
-def create_posts(new_post: Post):
-    print(new_post)
-    print(new_post.model_dump())
+def create_posts(post: Post):
+    print(post)
+    print(post.model_dump())
     return{"data": "data received"}
 
