@@ -12,20 +12,36 @@ class Post(BaseModel):
     rating: Optional[int] = None
 
 
+my_posts = [{"title": "title of post 1", "content": "Content of post 1", "id": 1}, {"title": "title of post 2", "content": "Content of post 2", "id": 2}]
+
+
 @app.get("/")
 def root():
     return{"message": "Hello World."}
+
 
 @app.get("/posts")
 def get_posts():
     return{"data": my_posts}
 
+
 @app.post("/posts")
 def create_posts(post: Post):
     print(post)
     print(post.model_dump())
-    my_posts.append(post.model_dump())
-    return{"data": "data received"}
+    post_dict = post.model_dump()
+    post_dict['id'] = randrange(0, 1000000)
+    my_posts.append(post_dict)
+    return{"data": post_dict}
 
 
-my_posts = [{"title": "title of post 1", "content": "Content of post 1", "id": 1}, {"title": "title of post 2", "content": "Content of post 2", "id": 2}]
+@app.get("/posts/{id}")
+def get_post(id: int):
+    post = find_post(id)
+    return{"data": post}
+
+
+def find_post(id):
+    for p in my_posts:
+        if p['id'] == id:
+            return p
