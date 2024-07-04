@@ -1,6 +1,7 @@
 from typing import Optional
 from fastapi import FastAPI
 from pydantic import BaseModel
+from random import randrange
 
 app = FastAPI()
 
@@ -23,6 +24,7 @@ def get_posts():
 def create_posts(post: Post):
     print(post)
     print(post.model_dump())
+    my_posts.append(post.model_dump())
     return{"data": "data received"}
 
 
