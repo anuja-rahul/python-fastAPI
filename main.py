@@ -66,3 +66,15 @@ def delete_post(id: int):
     print(index)
     # return{"message": "post was successfully deleted."}
     return Response(status_code=status.HTTP_204_NO_CONTENT)
+
+
+@app.put("/posts/{id}")
+def upate_post(id: int, post: Post):
+    index = find_index_post(id)
+    if index is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"post with id: {id} does not exist")
+    post_dict = post.model_dump()
+    post_dict["id"] = id
+    my_posts[index] = post_dict
+
+    return{"data": post_dict}
