@@ -69,7 +69,7 @@ def delete_post(id: int):
 
 
 @app.put("/posts/{id}")
-def upate_post(id: int, post: Post):
+def update_post(id: int, post: Post):
     index = find_index_post(id)
     if index is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"post with id: {id} does not exist")
