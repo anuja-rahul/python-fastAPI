@@ -2,6 +2,7 @@
 ![FAST API](https://img.shields.io/badge/-fast_api-000?style=for-the-badge&logo=fastapi)
 ![POSTMAN](https://img.shields.io/badge/-postman-000?style=for-the-badge&logo=postman)
 ![PYDANTIC](https://img.shields.io/badge/-pydantic-000?style=for-the-badge&logo=pydantic)
+![POSTGRES](https://img.shields.io/badge/-postgresql-000?style=for-the-badge&logo=postgresql)
 
 # Python-fastAPI
 
