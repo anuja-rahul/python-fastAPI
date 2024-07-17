@@ -1,5 +1,5 @@
 from typing import Optional
-from fastapi import FastAPI, Response, status, HTTPException
+from fastapi import FastAPI, Response, status, HTTPException, Depends
 from pydantic import BaseModel
 from random import randrange
 import psycopg
@@ -7,6 +7,7 @@ import time
 # from psycopg.rows import dict_row
 from . import models
 from .database import engine, SessionLocal
+from sqlalchemy.orm import Session
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -43,6 +44,11 @@ my_posts = [{"title": "title of post 1", "content": "Content of post 1", "id": 1
 @app.get("/")
 def root():
     return{"message": "Hello World."}
+
+@app.get("/sqlalchemy")
+def test_posts(db: Session = Depends(get_db)):
+    return {"status": "success"}
+
 
 
 @app.get("/posts")
