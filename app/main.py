@@ -40,6 +40,7 @@ my_posts = [{"title": "title of post 1", "content": "Content of post 1", "id": 1
 def root():
     return{"message": "Hello World."}
 
+
 @app.get("/sqlalchemy")
 def test_posts(db: Session = Depends(get_db)):
     return {"status": "success"}
