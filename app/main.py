@@ -116,13 +116,14 @@ def delete_post(id: int, db: Session = Depends(get_db)):
     # deleted_post = cursor.fetchone()
     # conn.commit()
 
-    post = db.query(models.Post).filter(models.Post.id == id).first()
+    post = db.query(models.Post).filter(models.Post.id == id)
 
 
     if post.first() is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"post with id: {id} does not exist")
     
     post.delete(synchronize_session=False)
+    db.commit()
 
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
