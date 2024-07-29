@@ -1,16 +1,15 @@
 from typing import Optional, List
 from fastapi import FastAPI, Response, status, HTTPException, Depends
 # from pydantic import BaseModel
-from passlib.context import CryptContext
+# from passlib.context import CryptContext
 # from random import randrange
 import psycopg
 import time
 # from psycopg.rows import dict_row
-from . import models, schemas
+from . import models, schemas, utils
 from .database import engine, get_db
 from sqlalchemy.orm import Session
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -152,7 +151,7 @@ def update_post(id: int, updated_post: schemas.PostCreate, db: Session = Depends
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
 
 
-    hashed_password = pwd_context.hash(user.password)
+    hashed_password = utils.hash(user.password)
     user.password = hashed_password
     new_user = models.User(**user.model_dump())
     db.add(new_user)
