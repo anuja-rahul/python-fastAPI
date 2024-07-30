@@ -20,6 +20,8 @@
 
 [![Project-Status](https://img.shields.io/badge/Project%20Status-setting_up_the_ORM-orange.svg)](https://github.com/anuja-rahul/portfolio-nextjs)
 &nbsp;  
+<!--
 [![Project-Version](https://img.shields.io/badge/Version-v0.1-green.svg)](https://github.com/anuja-rahul/python-fastAPI)
+-->
 
 ![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=anuja-rahul&repo=python-fastAPI&theme=nightowl)
