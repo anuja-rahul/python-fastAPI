@@ -18,7 +18,7 @@
 ![Watchers](https://img.shields.io/github/watchers/anuja-rahul/python-fastAPI?style&logo=github)
 &nbsp;
 
-[![Project-Status](https://img.shields.io/badge/Project%20Status-setting_up_the_ORM-orange.svg)](https://github.com/anuja-rahul/portfolio-nextjs)
+[![Project-Status](https://img.shields.io/badge/Project%20Status-setting_up_authentication-orange.svg)](https://github.com/anuja-rahul/portfolio-nextjs)
 &nbsp;  
 <!--
 [![Project-Version](https://img.shields.io/badge/Version-v0.1-green.svg)](https://github.com/anuja-rahul/python-fastAPI)
