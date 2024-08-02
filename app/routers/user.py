@@ -4,7 +4,8 @@ from .. import models, schemas, utils
 from fastapi import status, HTTPException, Depends, APIRouter
 
 router = APIRouter(
-    prefix="/users"
+    prefix="/users",
+    tags=["Users"]
 )
 
 
