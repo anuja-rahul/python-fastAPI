@@ -23,16 +23,16 @@ DBNAME = os.getenv("DBNAME")
 USER = os.getenv("USER")
 PASSWORD = os.getenv("PASSWORD")
 
-while True:
-    try:
-        conn = psycopg.connect(host=HOST, dbname=DBNAME, user=USER, password=PASSWORD)
-        cursor = conn.cursor(row_factory=psycopg.rows.dict_row)
-        print("\nDatabase connection was successfull !\n")
-        break
+# while True:
+#     try:
+#         conn = psycopg.connect(host=HOST, dbname=DBNAME, user=USER, password=PASSWORD)
+#         cursor = conn.cursor(row_factory=psycopg.rows.dict_row)
+#         print("\nDatabase connection was successfull !\n")
+#         break
 
-    except Exception as error:
-        print("\nConnecting to databse failed ! :", error)
-        time.sleep(2)
+#     except Exception as error:
+#         print("\nConnecting to databse failed ! :", error)
+#         time.sleep(2)
 
 
 # my_posts = [{"title": "title of post 1", "content": "Content of post 1", "id": 1}, {"title": "title of post 2", "content": "Content of post 2", "id": 2}]
