@@ -1,6 +1,6 @@
 from typing import List
 from ..database import get_db
-from .. import models, schemas
+from .. import models, schemas, oauth2
 from sqlalchemy.orm import Session
 from fastapi import Response, status, HTTPException, Depends, APIRouter
 
@@ -21,7 +21,7 @@ def get_posts(db: Session = Depends(get_db)):
 
 
 @router.post("/", status_code=status.HTTP_201_CREATED, response_model=schemas.Post)
-def create_posts(post: schemas.PostCreate, db: Session = Depends(get_db)):
+def create_posts(post: schemas.PostCreate, db: Session = Depends(get_db), user_id: int = Depends(oauth2.get_current_user)):
     # cursor.execute("""
     #     INSERT INTO posts (title, content, published) VALUES (%s, %s, %s) RETURNING *""", 
     #     (post.title, post.content, post.published))
@@ -43,7 +43,7 @@ def create_posts(post: schemas.PostCreate, db: Session = Depends(get_db)):
 
 
 @router.get("/{id}", response_model=schemas.Post)
-def get_post(id: int, response: Response, db: Session = Depends(get_db)):
+def get_post(id: int, response: Response, db: Session = Depends(get_db), user_id: int = Depends(oauth2.get_current_user)):
     # cursor.execute("""
     #     SELECT * FROM posts WHERE id = %s """, ((str(id)), ))
     # test_post = cursor.fetchone()
