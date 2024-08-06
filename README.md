@@ -6,7 +6,6 @@
 ![SQLALCHEMY](https://img.shields.io/badge/-sqlalchemy-000?style=for-the-badge&logo=sqlalchemy)
 ![JWT](https://img.shields.io/badge/-JWT-000?style=for-the-badge&logo=json-web-tokens)
 
-
 # Python-fastAPI
 
 ![GitHub](https://img.shields.io/github/forks/anuja-rahul/python-fastAPI?style&logo=github)
@@ -20,8 +19,9 @@
 ![Watchers](https://img.shields.io/github/watchers/anuja-rahul/python-fastAPI?style&logo=github)
 &nbsp;
 
-[![Project-Status](https://img.shields.io/badge/Project%20Status-setting_up_authentication-orange.svg)](https://github.com/anuja-rahul/portfolio-nextjs)
-&nbsp;  
+[![Project-Status](https://img.shields.io/badge/Project%20Status-adding_query_params-orange.svg)](https://github.com/anuja-rahul/portfolio-nextjs)
+&nbsp;
+
 <!--
 [![Project-Version](https://img.shields.io/badge/Version-v0.1-green.svg)](https://github.com/anuja-rahul/python-fastAPI)
 -->
