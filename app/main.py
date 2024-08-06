@@ -2,6 +2,14 @@ from fastapi import FastAPI
 from . import models
 from .database import engine
 from .routers import post, user, auth
+from pydantic_settings import BaseSettings
+
+
+class Settings(BaseSettings):
+    SECRET_KEY: str
+    ALGORITHM: str
+    ACCESS_TOKEN_EXPIRE_MINUTES: int
+    SQLALCHEMY_DATABASE_URL: str
 
 
 models.Base.metadata.create_all(bind=engine)
