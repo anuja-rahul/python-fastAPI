@@ -41,8 +41,8 @@ from .config import settings
 # load_dotenv()
 
 # SQLALCHEMY_DATABASE_URL = os.getenv("SQLALCHEMY_DATABASE_URL")
-# SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
-SQLALCHEMY_DATABASE_URL = settings.SQLALCHEMY_DATABASE_URL
+# SQLALCHEMY_DATABASE_URL = "postgresql://username:password@hostname:port/db"
+SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.USER}:{settings.PASSWORD}@{settings.HOST}:{settings.PORT}/{settings.DBNAME}"
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL
