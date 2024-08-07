@@ -2,6 +2,7 @@ from typing import List, Optional
 from ..database import get_db
 from .. import models, schemas, oauth2
 from sqlalchemy.orm import Session
+from sqlalchemy import func
 from fastapi import Response, status, HTTPException, Depends, APIRouter
 
 router = APIRouter(
@@ -19,8 +20,14 @@ def get_posts(db: Session = Depends(get_db), current_user: int = Depends(oauth2.
     # print(posts)x
     # print(limit)
 
-    posts = db.query(models.Post).filter(models.Post.title.contains(search)).order_by(models.Post.created_at).limit(limit).offset(offset).all()
+    posts = db.query(models.Post).filter(
+        models.Post.title.contains(search)).order_by(models.Post.created_at).limit(limit).offset(offset).all()
     # posts = db.query(models.Post).filter(models.Post.owner_id == current_user.id).all()
+
+    results = db.query(models.Post, func.count(models.Vote.post_id).label("votes")).join(
+        models.Vote, models.Vote.post_id == models.Post.id, isouter=True).group_by(models.Post.id)
+    print(results)
+
     return posts
 
 
