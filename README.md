@@ -5,7 +5,6 @@
 ![POSTGRES](https://img.shields.io/badge/-postgresql-000?style=for-the-badge&logo=postgresql)
 ![SQLALCHEMY](https://img.shields.io/badge/-sqlalchemy-000?style=for-the-badge&logo=sqlalchemy)
 ![JWT](https://img.shields.io/badge/-JWT-000?style=for-the-badge&logo=json-web-tokens)
-![Alembic](https://img.shields.io/badge/alembic-000?style=for-the-badge&logoColor=000)
 
 # Python-fastAPI
 

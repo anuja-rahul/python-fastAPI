@@ -1,4 +1,6 @@
 /venv
+# /alembic
+# alembic.ini
 venv/
 /.idea
 /__pycache__
