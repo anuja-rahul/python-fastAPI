@@ -21,12 +21,13 @@ def get_posts(db: Session = Depends(get_db), current_user: int = Depends(oauth2.
     # print(posts)x
     # print(limit)
 
-    posts = db.query(models.Post).filter(
-        models.Post.title.contains(search)).order_by(models.Post.created_at).limit(limit).offset(offset).all()
+    # posts = db.query(models.Post).filter(
+    #     models.Post.title.contains(search)).order_by(models.Post.created_at).limit(limit).offset(offset).all()
     # posts = db.query(models.Post).filter(models.Post.owner_id == current_user.id).all()
 
     results = db.query(models.Post, func.count(models.Vote.post_id).label("votes")).join(
-        models.Vote, models.Vote.post_id == models.Post.id, isouter=True).group_by(models.Post.id).all()
+        models.Vote, models.Vote.post_id == models.Post.id, isouter=True).group_by(models.Post.id).filter(
+        models.Post.title.contains(search)).order_by(models.Post.created_at).limit(limit).offset(offset).all()
 
     # print(results)
     # return posts
@@ -57,23 +58,28 @@ def create_posts(post: schemas.PostCreate, db: Session = Depends(get_db), curren
     return new_post
 
 
-@router.get("/{id}", response_model=schemas.Post)
-def get_post(id: int, response: Response, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
+@router.get("/{id}", response_model=schemas.PostOut)
+def get_post(id: int, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
     # cursor.execute("""
     #     SELECT * FROM posts WHERE id = %s """, ((str(id)), ))
     # test_post = cursor.fetchone()
     # print(test_post)
     # post = find_post(id)
 
-    post = db.query(models.Post).filter(models.Post.id == id).first()
+    # post = db.query(models.Post).filter(models.Post.id == id).first()
+
+    post = db.query(models.Post, func.count(models.Vote.post_id).label("votes")).join(
+        models.Vote, models.Vote.post_id == models.Post.id, isouter=True).group_by(models.Post.id).filter(
+            models.Post.id == id).first()
     
     if not post:
         # response.status_code = status.HTTP_404_NOT_FOUND
         # return{"data": f"post with id: {id} was not found"}
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"post with id: {id} was not found")
     
-    if post.owner_id != current_user.id:
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="You are not authorized to perform this action")
+    # if post.owner_id != current_user.id:
+    #     raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="You are not authorized to perform this action")
+    
     return post
 
 
