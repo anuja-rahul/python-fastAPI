@@ -26,27 +26,39 @@
 [![Project-Version](https://img.shields.io/badge/Version-v0.1-green.svg)](https://github.com/anuja-rahul/python-fastAPI)
 -->
 
+## Prerequisites  
+
+- [python ≥ 3.10](https://www.python.org/downloads/)
+- [postgreSQL ≥ 16.0](https://www.postgresql.org/download/)
+
 ## Getting Started  
 
-1. Create a Virtual environment
+1. Clone this repository
+
+    ```bash
+    git clone https://github.com/anuja-rahul/python-fastAPI.git
+    ```
+
+2. Create a Virtual environment
 
     ```bash
     python -m venv venv
     ```
 
-2. Activate the venv
+3. Activate the venv
 
     ```bash
     activate venv
     ```
 
-3. Install the packages
+4. Install the packages
 
     ```bash
     pip install -r requirements.txt
     ```
 
-4. Setting up the env variables: *`required: .env`*  
+5. Setting up the env variables:  *`required: .env`*  
+
     ex: *for dev env*
 
     ```bash
@@ -60,15 +72,13 @@
     PASSWORD="Your password"
     ```
 
-    * if you have openssl you can run
+    - <span style="color: yellow;">Note:</span> If you have openssl, to generate a `SECRET_KEY` you can run :
   
         ```bash
         openssl rand -hex 32
         ```
 
-        to generate a `SECRET_KEY`
-
-5. Start the uvicorn server
+6. Start the uvicorn server
 
     ```bash
     uvicorn app.main:app --reload
@@ -78,11 +88,13 @@
 
 - After starting the uvicorn server visit
 
+    for *`Swagger UI`*:
+
     ```bash
     http://localhost:8000/docs
     ```
 
-    or
+    or for *`Redoc`*:
 
     ```bash
     http://localhost:8000/redoc
