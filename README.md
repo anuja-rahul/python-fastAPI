@@ -56,7 +56,7 @@
     HOST="localhost"
     DBNAME="Your DB name"
     PORT="8000"
-    USER="Username"
+    USER="Your Username"
     PASSWORD="Your password"
     ```
 
