@@ -26,4 +26,70 @@
 [![Project-Version](https://img.shields.io/badge/Version-v0.1-green.svg)](https://github.com/anuja-rahul/python-fastAPI)
 -->
 
+## Getting Started  
+
+1. Create a Virtual environment
+
+    ```bash
+    python -m venv venv
+    ```
+
+2. Activate the venv
+
+    ```bash
+    activate venv
+    ```
+
+3. Install the packages
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. Setting up the env variables: *`required: .env`*  
+    ex: *for dev env*
+
+    ```bash
+    SECRET_KEY="Your Secret Key"
+    ALGORITHM="HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES="60"
+    HOST="localhost"
+    DBNAME="Your DB name"
+    PORT="8000"
+    USER="Username"
+    PASSWORD="Your password"
+    ```
+
+    * if you have openssl you can run
+  
+        ```bash
+        openssl rand -hex 32
+        ```
+
+        to generate a `SECRET_KEY`
+
+5. Start the uvicorn server
+
+    ```bash
+    uvicorn app.main:app --reload
+    ```
+
+## Documentation  
+
+- After starting the uvicorn server visit
+
+    ```bash
+    http://localhost:8000/docs
+    ```
+
+    or
+
+    ```bash
+    http://localhost:8000/redoc
+    ```
+
+&nbsp;
+&nbsp;
+&nbsp;
+
 ![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=anuja-rahul&repo=python-fastAPI&theme=nightowl)
