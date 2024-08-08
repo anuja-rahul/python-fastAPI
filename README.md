@@ -72,7 +72,7 @@
     PASSWORD="Your password"
     ```
 
-    - <span style="color: yellow;">Note:</span> If you have openssl, to generate a `SECRET_KEY` you can run :
+    - Note: If you have openssl, to generate a `SECRET_KEY` you can run :
   
         ```bash
         openssl rand -hex 32
