@@ -28,7 +28,7 @@
 
 ## Prerequisites
 
-- [git](https://git-scm.com/downloads)
+<!-- - [git](https://git-scm.com/downloads) -->
 - [python ≥ 3.10](https://www.python.org/downloads/)
 - [postgreSQL ≥ 16.0](https://www.postgresql.org/download/)
 
