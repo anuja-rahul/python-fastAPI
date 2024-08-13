@@ -8,7 +8,12 @@ from .routers import post, user, auth, vote
 
 # models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI()
+app = FastAPI(
+    title="Python-fastAPI",
+    version="0.1.0",
+    docs_url="/docs",
+    redoc_url="/redoc",
+)
 
 origins = ["*"]
 
