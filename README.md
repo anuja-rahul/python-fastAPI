@@ -19,7 +19,7 @@
 ![Watchers](https://img.shields.io/github/watchers/anuja-rahul/python-fastAPI?style&logo=github)
 &nbsp;
 
-[![Project-Status](https://img.shields.io/badge/Project%20Status-adding_query_params-orange.svg)](https://github.com/anuja-rahul/portfolio-nextjs)
+[![Project-Status](https://img.shields.io/badge/Project%20Status-deploying-orange.svg)](https://github.com/anuja-rahul/portfolio-nextjs)
 &nbsp;
 
 <!--
